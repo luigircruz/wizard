@@ -11,9 +11,12 @@ class Generic extends Preset
      */
     public static function install()
     {
-        static::updatePhp();
-        static::updateCss();
-        static::updateJs();
+        static::updateIndexPhp();
+        static::updateConfig();
+        static::updateTranslations();
+        static::updateMainCss();
+        static::updateMainJs();
+        static::updateTrackingJs();
     }
 
     /**
@@ -21,9 +24,29 @@ class Generic extends Preset
      *
      * @return void
      */
-    protected static function updatePhp()
+    protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/generic-stubs/en/index.php', base_path('presets/en/index.php'));
+        copy(__DIR__.'/generic-stubs/index.php', base_path('presets/en/index.php'));
+    }
+
+    /**
+     * Update PHP files for the application.
+     *
+     * @return void
+     */
+    protected static function updateConfig()
+    {
+        copy(__DIR__.'/generic-stubs/config.php', base_path('presets/config.php'));
+    }
+
+    /**
+     * Update PHP files for the application.
+     *
+     * @return void
+     */
+    protected static function updateTranslations()
+    {
+        copy(__DIR__.'/generic-stubs/translations.php', base_path('presets/translations.php'));
     }
 
     /**
@@ -31,9 +54,9 @@ class Generic extends Preset
      *
      * @return void
      */
-    protected static function updateCss()
+    protected static function updateMainCss()
     {
-        copy(__DIR__.'/generic-stubs/css/main.css', base_path('presets/css/main.css'));
+        copy(__DIR__.'/generic-stubs/main.css', base_path('presets/css/main.css'));
     }
 
     /**
@@ -41,8 +64,18 @@ class Generic extends Preset
      *
      * @return void
      */
-    protected static function updateJs()
+    protected static function updateMainJs()
     {
-        copy(__DIR__.'/generic-stubs/js/main.js', base_path('presets/js/main.js'));
+        copy(__DIR__.'/generic-stubs/main.js', base_path('presets/js/main.js'));
+    }
+
+    /**
+     * Update PHP files for the application.
+     *
+     * @return void
+     */
+    protected static function updateTrackingJs()
+    {
+        copy(__DIR__.'/generic-stubs/tracking.js', base_path('presets/js/tracking.js'));
     }
 }

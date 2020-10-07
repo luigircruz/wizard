@@ -49,6 +49,6 @@ class PresetCommand extends Command
         Presets\Generic::install();
 
         $this->info('Generic Preset created successfully.');
-        $this->comment('Please run "npm install && npm run dev" to compile your fresh scaffolding.');
+        $this->comment('You may now extract your generic template from the presets directory.');
     }
 }
