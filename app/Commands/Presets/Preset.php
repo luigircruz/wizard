@@ -15,10 +15,6 @@ class Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/en'))) {
-            $filesystem->makeDirectory($directory, 0755, true);
-        }
-
         if (! $filesystem->isDirectory($directory = base_path('presets/css'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }

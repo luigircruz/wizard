@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Commands\Presets;
+use Illuminate\Filesystem\Filesystem;
 
 class Generic extends Preset
 {
@@ -11,6 +12,8 @@ class Generic extends Preset
      */
     public static function install()
     {
+        static::createLangDirectory();
+        static::ensurePresetDirectoryExists();
         static::updateIndexPhp();
         static::updateConfig();
         static::updateTranslations();
@@ -18,7 +21,7 @@ class Generic extends Preset
         static::updateMainJs();
         static::updateTrackingJs();
     }
-
+    
     /**
      * Update PHP files for the application.
      *
@@ -26,7 +29,7 @@ class Generic extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/generic-stubs/index.php', base_path('presets/en/index.php'));
+        copy(__DIR__.'/langs/en-stubs/index.php', base_path('presets/en/index.php'));
     }
 
     /**
@@ -40,7 +43,7 @@ class Generic extends Preset
     }
 
     /**
-     * Update PHP files for the application.
+     * Update Translation file for the application.
      *
      * @return void
      */
@@ -77,5 +80,21 @@ class Generic extends Preset
     protected static function updateTrackingJs()
     {
         copy(__DIR__.'/generic-stubs/tracking.js', base_path('presets/js/tracking.js'));
+    }
+
+    /**
+     * Ensure the preset directories we need exist.
+     *
+     * @return void
+     */
+    protected static function createLangDirectory()
+    {
+        $filesystem = new Filesystem;
+
+        $filesystem->cleanDirectory(base_path('presets'));
+
+        if (! $filesystem->exists($directory = base_path('presets/en'))) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
     }
 }
