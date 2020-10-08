@@ -7,7 +7,7 @@ include_once('config.php');
 				Normal Reg Variables
 ----------------------------------------------------*/
 // Normal Reg Language declaration
-$rf_lang = 'id';
+$rf_lang = 'kr';
 
 // Include the fast reg configuration
 include($_SERVER['DOCUMENT_ROOT'].'/normal-reg/rf-config.php');
@@ -18,7 +18,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/normal-reg/rf-config.php');
 ----------------------------------------------------*/
 
 //Language
-$tpl_lang = 'id';
+$tpl_lang = 'kr';
 
 //Header template
 include($_SERVER['DOCUMENT_ROOT'].'/hf-tpl/variables.php');

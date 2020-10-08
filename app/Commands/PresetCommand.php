@@ -13,16 +13,16 @@ class PresetCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'make:preset
+    protected $signature = "make:preset
                     { type : The preset type (generic, registration) }
-                    { --lang= : Creates a page for a language }';
+                    { --lang=* : Language pages to generate. Example: ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn'] }";
 
     /**
      * The description of the command.
      *
      * @var string
      */
-    protected $description = 'Generate a preset template for your landing page';
+    protected $description = 'Generates a preset template for your landing page';
 
     /**
      * Execute the console command.
@@ -34,18 +34,22 @@ class PresetCommand extends Command
     public function handle()
     {
         if (! in_array($this->argument('type'), ['generic', 'registration'])) {
-            throw new InvalidArgumentException('Invalid preset!');
+            throw new InvalidArgumentException('Invalid preset type!');
         }
 
         $this->{$this->argument('type')}();
 
         if ($this->option('lang')) {
-            if (! in_array($this->option('lang'), ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn'])) {
-                throw new InvalidArgumentException('The specified language doesn\'t exist!');
+            foreach ($this->option('lang') as $lang) {
+                if (! in_array($lang, ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn'])) {
+                    throw new InvalidArgumentException('The specified language doesn\'t exist!');
+                }
+                
+                $this->{$lang}();
             }
-
-            $this->{$this->option('lang')}();
         }
+
+        $this->comment('You may now extract your generic template from the created presets directory.');
         
     }
 
@@ -59,7 +63,6 @@ class PresetCommand extends Command
         Presets\Generic::install();
 
         $this->info('Generic Preset created successfully.');
-        $this->comment('You may now extract your generic template from the presets directory.');
     }
 
     /**
@@ -70,8 +73,6 @@ class PresetCommand extends Command
     protected function en()
     {
         Presets\Langs\EN::install();
-
-        $this->info('EN language created successfully.');
     }
 
     /**
@@ -82,7 +83,55 @@ class PresetCommand extends Command
     protected function id()
     {
         Presets\Langs\ID::install();
+    }
 
-        $this->info('ID language created successfully.');
+    /**
+     * Install IN language page.
+     *
+     * @return void
+     */
+    protected function in()
+    {
+        Presets\Langs\IN::install();
+    }
+
+    /**
+     * Install KR language page.
+     *
+     * @return void
+     */
+    protected function kr()
+    {
+        Presets\Langs\KR::install();
+    }
+
+    /**
+     * Install SC language page.
+     *
+     * @return void
+     */
+    protected function sc()
+    {
+        Presets\Langs\SC::install();
+    }
+
+    /**
+     * Install TH language page.
+     *
+     * @return void
+     */
+    protected function th()
+    {
+        Presets\Langs\TH::install();
+    }
+
+    /**
+     * Install VN language page.
+     *
+     * @return void
+     */
+    protected function vn()
+    {
+        Presets\Langs\VN::install();
     }
 }
