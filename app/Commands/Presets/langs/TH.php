@@ -16,7 +16,6 @@ class TH extends Preset
     {
         static::createLangDirectory();
         static::updateIndexPhp();
-
     }
     
     /**

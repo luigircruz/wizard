@@ -16,7 +16,6 @@ class KR extends Preset
     {
         static::createLangDirectory();
         static::updateIndexPhp();
-
     }
     
     /**

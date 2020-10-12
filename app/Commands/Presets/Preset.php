@@ -24,6 +24,10 @@ class Preset
         if (! $filesystem->isDirectory($directory = base_path('../presets/assets/js'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
+
+        if (! $filesystem->isDirectory($directory = base_path('../presets/config'))) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
     }
 
     /**
@@ -33,7 +37,7 @@ class Preset
      */
     protected static function updateConfig()
     {
-        copy(__DIR__.'/generic-stubs/config.php', base_path('../presets/config.php'));
+        copy(__DIR__.'/generic-stubs/config/app.php', base_path('../presets/config/app.php'));
     }
 
     /**
@@ -43,7 +47,7 @@ class Preset
      */
     protected static function updateTranslations()
     {
-        copy(__DIR__.'/generic-stubs/translations.php', base_path('../presets/translations.php'));
+        copy(__DIR__.'/generic-stubs/config/translations.php', base_path('../presets/config/translations.php'));
     }
 
     /**
@@ -53,7 +57,7 @@ class Preset
      */
     protected static function updateMainCss()
     {
-        copy(__DIR__.'/generic-stubs/main.css', base_path('../presets/assets/css/main.css'));
+        copy(__DIR__.'/generic-stubs/resources/assets/main.css', base_path('../presets/assets/css/main.css'));
     }
 
     /**
@@ -63,7 +67,7 @@ class Preset
      */
     protected static function updateMainJs()
     {
-        copy(__DIR__.'/generic-stubs/main.js', base_path('../presets/assets/js/main.js'));
+        copy(__DIR__.'/generic-stubs/resources/assets/main.js', base_path('../presets/assets/js/main.js'));
     }
 
     /**
@@ -73,6 +77,6 @@ class Preset
      */
     protected static function updateTrackingJs()
     {
-        copy(__DIR__.'/generic-stubs/tracking.js', base_path('../presets/assets/js/tracking.js'));
+        copy(__DIR__.'/generic-stubs/resources/assets/tracking.js', base_path('../presets/assets/js/tracking.js'));
     }
 }

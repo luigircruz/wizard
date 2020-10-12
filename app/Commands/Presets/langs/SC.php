@@ -16,7 +16,6 @@ class SC extends Preset
     {
         static::createLangDirectory();
         static::updateIndexPhp();
-
     }
     
     /**

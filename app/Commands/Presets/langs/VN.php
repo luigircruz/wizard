@@ -16,7 +16,6 @@ class VN extends Preset
     {
         static::createLangDirectory();
         static::updateIndexPhp();
-
     }
     
     /**

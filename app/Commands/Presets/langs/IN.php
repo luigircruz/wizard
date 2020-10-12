@@ -16,7 +16,6 @@ class IN extends Preset
     {
         static::createLangDirectory();
         static::updateIndexPhp();
-
     }
     
     /**

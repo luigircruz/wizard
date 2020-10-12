@@ -16,7 +16,6 @@ class EN extends Preset
     {
         static::createLangDirectory();
         static::updateIndexPhp();
-
     }
     
     /**
