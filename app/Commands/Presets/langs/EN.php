@@ -25,7 +25,7 @@ class EN extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/en-stubs/index.php', base_path('../presets/en/index.php'));
+        copy(__DIR__.'/en-stubs/index.stub', base_path('../presets/en/index.php'));
     }
 
     /**

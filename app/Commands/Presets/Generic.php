@@ -13,8 +13,8 @@ class Generic extends Preset
     public static function install()
     {
         static::ensurePresetDirectoryExists();
-        static::createLangDirectory();
-        static::updateIndexPhp();
+        // static::createLangDirectory();
+        // static::updateIndexPhp();
         static::updateConfig();
         static::updateTranslations();
         static::updateMainCss();
@@ -29,7 +29,7 @@ class Generic extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/langs/en-stubs/index.php', base_path('../presets/en/index.php'));
+        copy(__DIR__.'/langs/en-stubs/index.stub', base_path('../presets/en/index.php'));
     }
 
     /**

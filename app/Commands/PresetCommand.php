@@ -34,16 +34,20 @@ class PresetCommand extends Command
     public function handle()
     {
         if (! in_array($this->argument('type'), ['generic', 'registration'])) {
+            $this->notify('Invalid Preset Type', 'The preset type that you have entered doesn\'t exists!');
             throw new InvalidArgumentException('Invalid preset type!');
         }
 
-        $this->{$this->argument('type')}();
-
         if ($this->option('lang')) {
+            
+            $this->{$this->argument('type')}();
+
             foreach ($this->option('lang') as $lang) {
                 if (! in_array($lang, ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn'])) {
+                    $this->notify('Invalid Language Argument', 'The language that you have specified doesn\'t exist!');
                     throw new InvalidArgumentException('The specified language doesn\'t exist!');
                 }
+                
                 
                 $this->{$lang}();
             }
@@ -58,7 +62,7 @@ class PresetCommand extends Command
      *
      * @return void
      */
-    protected function generic()
+    protected function generic() : void
     {
         Presets\Generic::install();
 
