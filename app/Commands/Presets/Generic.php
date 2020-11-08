@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Commands\Presets;
-use Illuminate\Filesystem\Filesystem;
 
 class Generic extends Preset
 {
@@ -13,10 +12,6 @@ class Generic extends Preset
     public static function install()
     {
         static::ensurePresetDirectoryExists();
-        static::updateConfig();
-        static::updateTranslations();
-        static::updateMainCss();
-        static::updateMainJs();
-        static::updateTrackingJs();
+        static::createCommonFiles();
     }
 }

@@ -5,7 +5,7 @@ namespace App\Commands\Presets\Langs;
 use App\Commands\Presets\Preset;
 use Illuminate\Filesystem\Filesystem;
 
-class EN extends Preset
+class EN
 {
     /**
      * Install the preset.

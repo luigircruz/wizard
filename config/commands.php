@@ -41,6 +41,7 @@ return [
 
     'add' => [
         // ..
+        App\Commands\PresetCommand::class,
     ],
 
     /*

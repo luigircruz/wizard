@@ -17,6 +17,10 @@ class Preset
 
         $filesystem->cleanDirectory(base_path('presets'));
 
+        if (! $filesystem->isDirectory($directory = base_path('presets/config'))) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
+
         if (! $filesystem->isDirectory($directory = base_path('presets/resources/css'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
@@ -25,62 +29,31 @@ class Preset
             $filesystem->makeDirectory($directory, 0755, true);
         }
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/resources/config'))) {
+        if (! $filesystem->isDirectory($directory = base_path('presets/resources/views'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/resources/config/translations'))) {
+        if (! $filesystem->isDirectory($directory = base_path('presets/resources/views/layouts'))) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
+
+        if (! $filesystem->isDirectory($directory = base_path('presets/resources/img'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
     }
 
     /**
-     * Update PHP files for the application.
+     * Create common files for the application.
      *
      * @return void
      */
-    protected static function updateConfig()
+    protected static function createCommonFiles()
     {
-        copy(__DIR__.'/generic-stubs/config/app.stub', base_path('presets/resources/config/app.php'));
-    }
-
-    /**
-     * Update Translation file for the application.
-     *
-     * @return void
-     */
-    protected static function updateTranslations()
-    {
-        copy(__DIR__.'/generic-stubs/config/translations.stub', base_path('presets/resources/config/translations/translation-en.php'));
-    }
-
-    /**
-     * Update the CSS files for the application.
-     *
-     * @return void
-     */
-    protected static function updateMainCss()
-    {
-        copy(__DIR__.'/generic-stubs/resources/assets/style.stub', base_path('presets/resources/css/main.css'));
-    }
-
-    /**
-     * Update the JS files for the application.
-     *
-     * @return void
-     */
-    protected static function updateMainJs()
-    {
-        copy(__DIR__.'/generic-stubs/resources/assets/script.stub', base_path('presets/resources/js/main.js'));
-    }
-
-    /**
-     * Update PHP files for the application.
-     *
-     * @return void
-     */
-    protected static function updateTrackingJs()
-    {
-        copy(__DIR__.'/generic-stubs/resources/assets/tracking.stub', base_path('presets/resources/js/tracking.js'));
+        copy(__DIR__.'/generic-stubs/style.stub', base_path('presets/resources/css/style.css'));
+        copy(__DIR__.'/generic-stubs/script.stub', base_path('presets/resources/js/script.js'));
+        copy(__DIR__.'/generic-stubs/tracking.stub', base_path('presets/resources/js/tracking.js'));
+        copy(__DIR__.'/generic-stubs/main.stub', base_path('presets/resources/views/layouts/main.php'));
+        copy(__DIR__.'/generic-stubs/head.stub', base_path('presets/resources/views/head.php'));
+        copy(__DIR__.'/generic-stubs/footer.stub', base_path('presets/resources/views/footer.php'));
     }
 }
