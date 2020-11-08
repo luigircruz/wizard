@@ -25,7 +25,7 @@ class ID extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/id-stubs/index.php', base_path('../presets/id/index.php'));
+        copy(__DIR__.'/id-stubs/index.stub', base_path('presets/id/index.php'));
     }
 
     /**
@@ -37,9 +37,9 @@ class ID extends Preset
     {
         $filesystem = new Filesystem;
 
-        // $filesystem->deleteDirectory(base_path('../presets/en'));
+        // $filesystem->deleteDirectory(base_path('presets/en'));
 
-        if (! $filesystem->exists($directory = base_path('../presets/id'))) {
+        if (! $filesystem->exists($directory = base_path('presets/id'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
     }

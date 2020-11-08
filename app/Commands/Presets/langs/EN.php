@@ -25,7 +25,7 @@ class EN extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/en-stubs/index.stub', base_path('../presets/en/index.php'));
+        copy(__DIR__.'/en-stubs/index.stub', base_path('presets/en/index.php'));
     }
 
     /**
@@ -37,7 +37,7 @@ class EN extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('../presets/en'))) {
+        if (! $filesystem->exists($directory = base_path('presets/en'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
     }

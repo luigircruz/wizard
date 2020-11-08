@@ -25,7 +25,7 @@ class SC extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/sc-stubs/index.php', base_path('../presets/sc/index.php'));
+        copy(__DIR__.'/sc-stubs/index.stub', base_path('presets/sc/index.php'));
     }
 
     /**
@@ -37,7 +37,7 @@ class SC extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('../presets/sc'))) {
+        if (! $filesystem->exists($directory = base_path('presets/sc'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
     }

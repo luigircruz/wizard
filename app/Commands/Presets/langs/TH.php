@@ -25,7 +25,7 @@ class TH extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/th-stubs/index.php', base_path('../presets/th/index.php'));
+        copy(__DIR__.'/th-stubs/index.stub', base_path('presets/th/index.php'));
     }
 
     /**
@@ -37,7 +37,7 @@ class TH extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('../presets/th'))) {
+        if (! $filesystem->exists($directory = base_path('presets/th'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
     }

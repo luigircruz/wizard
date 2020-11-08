@@ -38,10 +38,9 @@ class PresetCommand extends Command
             throw new InvalidArgumentException('Invalid preset type!');
         }
 
-        if ($this->option('lang')) {
-            
-            $this->{$this->argument('type')}();
+        $this->{$this->argument('type')}();
 
+        if ($this->option('lang')) {
             foreach ($this->option('lang') as $lang) {
                 if (! in_array($lang, ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn'])) {
                     $this->notify('Invalid Language Argument', 'The language that you have specified doesn\'t exist!');
@@ -53,7 +52,8 @@ class PresetCommand extends Command
             }
         }
 
-        $this->comment('You may now extract your generic template from the created presets directory.');
+        $this->comment('You may now extract your template from the created presets directory.');
+        $this->notify('Preset Succesfully Generated!', 'You may now extract your template from the created presets directory.');
         
     }
 

@@ -25,7 +25,7 @@ class VN extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/vn-stubs/index.php', base_path('../presets/vn/index.php'));
+        copy(__DIR__.'/vn-stubs/index.stub', base_path('presets/vn/index.php'));
     }
 
     /**
@@ -37,7 +37,7 @@ class VN extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('../presets/vn'))) {
+        if (! $filesystem->exists($directory = base_path('presets/vn'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
     }

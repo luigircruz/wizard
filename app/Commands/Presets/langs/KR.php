@@ -25,7 +25,7 @@ class KR extends Preset
      */
     protected static function updateIndexPhp()
     {
-        copy(__DIR__.'/kr-stubs/index.php', base_path('../presets/kr/index.php'));
+        copy(__DIR__.'/kr-stubs/index.stub', base_path('presets/kr/index.php'));
     }
 
     /**
@@ -37,7 +37,7 @@ class KR extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('../presets/kr'))) {
+        if (! $filesystem->exists($directory = base_path('presets/kr'))) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
     }
