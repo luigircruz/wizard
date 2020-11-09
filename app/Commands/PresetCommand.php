@@ -76,7 +76,7 @@ class PresetCommand extends Command
      */
     protected function en()
     {
-        Presets\Langs\EN::install();
+        Presets\langs\EN::install();
     }
 
     /**
@@ -86,7 +86,7 @@ class PresetCommand extends Command
      */
     protected function id()
     {
-        Presets\Langs\ID::install();
+        Presets\langs\ID::install();
     }
 
     /**
@@ -96,7 +96,7 @@ class PresetCommand extends Command
      */
     protected function in()
     {
-        Presets\Langs\IN::install();
+        Presets\langs\IN::install();
     }
 
     /**
@@ -106,7 +106,7 @@ class PresetCommand extends Command
      */
     protected function kr()
     {
-        Presets\Langs\KR::install();
+        Presets\langs\KR::install();
     }
 
     /**
@@ -116,7 +116,7 @@ class PresetCommand extends Command
      */
     protected function sc()
     {
-        Presets\Langs\SC::install();
+        Presets\langs\SC::install();
     }
 
     /**
@@ -126,7 +126,7 @@ class PresetCommand extends Command
      */
     protected function th()
     {
-        Presets\Langs\TH::install();
+        Presets\langs\TH::install();
     }
 
     /**
@@ -136,6 +136,6 @@ class PresetCommand extends Command
      */
     protected function vn()
     {
-        Presets\Langs\VN::install();
+        Presets\langs\VN::install();
     }
 }

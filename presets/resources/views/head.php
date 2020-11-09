@@ -10,10 +10,10 @@
 
   <link href="../resources/img/favicon.ico" rel="shortcut icon">
 
-  <link href="../resources/css/main.css" rel="stylesheet">
+  <link href="../resources/css/style.css" rel="stylesheet">
     
-  <script type="text/javascript" src="../resources/js/main.js"></script>
+  <script type="text/javascript" src="../resources/js/script.js"></script>
 
-  <script src="../resources/js/tracking.x.js"></script>
+  <script src="../resources/js/tracking.js"></script>
 
 </head>

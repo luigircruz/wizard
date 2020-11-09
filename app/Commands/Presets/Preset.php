@@ -15,29 +15,29 @@ class Preset
     {
         $filesystem = new Filesystem;
 
-        $filesystem->cleanDirectory(base_path('presets'));
+        $filesystem->cleanDirectory(getcwd() .'/presets');
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/config'))) {
+        if (! $filesystem->isDirectory($directory = getcwd() .'/presets/config')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/resources/css'))) {
+        if (! $filesystem->isDirectory($directory = getcwd() .'/presets/resources/css')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/resources/js'))) {
+        if (! $filesystem->isDirectory($directory = getcwd() .'/presets/resources/js')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/resources/views'))) {
+        if (! $filesystem->isDirectory($directory = getcwd() .'/presets/resources/views')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/resources/views/layouts'))) {
+        if (! $filesystem->isDirectory($directory = getcwd() .'/presets/resources/views/layouts')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
 
-        if (! $filesystem->isDirectory($directory = base_path('presets/resources/img'))) {
+        if (! $filesystem->isDirectory($directory = getcwd() .'/presets/resources/img')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
     }
@@ -49,11 +49,11 @@ class Preset
      */
     protected static function createCommonFiles()
     {
-        copy(__DIR__.'/generic-stubs/style.stub', base_path('presets/resources/css/style.css'));
-        copy(__DIR__.'/generic-stubs/script.stub', base_path('presets/resources/js/script.js'));
-        copy(__DIR__.'/generic-stubs/tracking.stub', base_path('presets/resources/js/tracking.js'));
-        copy(__DIR__.'/generic-stubs/main.stub', base_path('presets/resources/views/layouts/main.php'));
-        copy(__DIR__.'/generic-stubs/head.stub', base_path('presets/resources/views/head.php'));
-        copy(__DIR__.'/generic-stubs/footer.stub', base_path('presets/resources/views/footer.php'));
+        copy(__DIR__.'/generic-stubs/style.stub', getcwd() .'/presets/resources/css/style.css');
+        copy(__DIR__.'/generic-stubs/script.stub', getcwd() .'/presets/resources/js/script.js');
+        copy(__DIR__.'/generic-stubs/tracking.stub', getcwd() .'/presets/resources/js/tracking.js');
+        copy(__DIR__.'/generic-stubs/main.stub', getcwd() .'/presets/resources/views/layouts/main.php');
+        copy(__DIR__.'/generic-stubs/head.stub', getcwd() .'/presets/resources/views/head.php');
+        copy(__DIR__.'/generic-stubs/footer.stub', getcwd() .'/presets/resources/views/footer.php');
     }
 }

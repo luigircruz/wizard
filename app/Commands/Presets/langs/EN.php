@@ -1,8 +1,7 @@
 <?php
 
-namespace App\Commands\Presets\Langs;
+namespace App\Commands\Presets\langs;
 
-use App\Commands\Presets\Preset;
 use Illuminate\Filesystem\Filesystem;
 
 class EN
@@ -15,17 +14,7 @@ class EN
     public static function install()
     {
         static::createLangDirectory();
-        static::updateIndexPhp();
-    }
-    
-    /**
-     * Update PHP files for the application.
-     *
-     * @return void
-     */
-    protected static function updateIndexPhp()
-    {
-        copy(__DIR__.'/en-stubs/index.stub', base_path('presets/en/index.php'));
+        static::createENFiles();
     }
 
     /**
@@ -37,8 +26,24 @@ class EN
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('presets/en'))) {
+        if (! $filesystem->exists($directory = getcwd() .'/presets/en')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
+
+        if (! $filesystem->exists($directory = getcwd() .'/presets/config/en')) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
+    }
+
+    /**
+     * Create EN specific files.
+     *
+     * @return void
+     */
+    protected static function createENFiles()
+    {
+        copy(__DIR__.'/en-stubs/index.stub', getcwd() .'/presets/en/index.php');
+        copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/en/app.php');
+        copy(__DIR__.'/en-stubs/translations.stub', getcwd() .'/presets/config/en/translations.php');
     }
 }

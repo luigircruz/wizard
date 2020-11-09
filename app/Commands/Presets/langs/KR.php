@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Commands\Presets\Langs;
+namespace App\Commands\Presets\langs;
 
-use App\Commands\Presets\Preset;
 use Illuminate\Filesystem\Filesystem;
 
-class KR extends Preset
+class KR
 {
     /**
      * Install the preset.
@@ -15,17 +14,7 @@ class KR extends Preset
     public static function install()
     {
         static::createLangDirectory();
-        static::updateIndexPhp();
-    }
-    
-    /**
-     * Update PHP files for the application.
-     *
-     * @return void
-     */
-    protected static function updateIndexPhp()
-    {
-        copy(__DIR__.'/kr-stubs/index.stub', base_path('presets/kr/index.php'));
+        static::createKRFiles();
     }
 
     /**
@@ -37,8 +26,24 @@ class KR extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('presets/kr'))) {
+        if (! $filesystem->exists($directory = getcwd() .'/presets/kr')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
+
+        if (! $filesystem->exists($directory = getcwd() .'/presets/config/kr')) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
+    }
+
+    /**
+     * Create KR specific files.
+     *
+     * @return void
+     */
+    protected static function createKRFiles()
+    {
+        copy(__DIR__.'/kr-stubs/index.stub', getcwd() .'/presets/kr/index.php');
+        copy(__DIR__.'/kr-stubs/app.stub', getcwd() .'/presets/config/kr/app.php');
+        copy(__DIR__.'/kr-stubs/translations.stub', getcwd() .'/presets/config/kr/translations.php');
     }
 }

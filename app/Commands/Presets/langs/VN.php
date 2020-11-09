@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Commands\Presets\Langs;
+namespace App\Commands\Presets\langs;
 
-use App\Commands\Presets\Preset;
 use Illuminate\Filesystem\Filesystem;
 
-class VN extends Preset
+class VN
 {
     /**
      * Install the preset.
@@ -15,17 +14,7 @@ class VN extends Preset
     public static function install()
     {
         static::createLangDirectory();
-        static::updateIndexPhp();
-    }
-    
-    /**
-     * Update PHP files for the application.
-     *
-     * @return void
-     */
-    protected static function updateIndexPhp()
-    {
-        copy(__DIR__.'/vn-stubs/index.stub', base_path('presets/vn/index.php'));
+        static::createVNFiles();
     }
 
     /**
@@ -37,8 +26,24 @@ class VN extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('presets/vn'))) {
+        if (! $filesystem->exists($directory = getcwd() .'/presets/vn')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
+
+        if (! $filesystem->exists($directory = getcwd() .'/presets/config/vn')) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
+    }
+
+    /**
+     * Create VN specific files.
+     *
+     * @return void
+     */
+    protected static function createVNFiles()
+    {
+        copy(__DIR__.'/vn-stubs/index.stub', getcwd() .'/presets/vn/index.php');
+        copy(__DIR__.'/vn-stubs/app.stub', getcwd() .'/presets/config/vn/app.php');
+        copy(__DIR__.'/vn-stubs/translations.stub', getcwd() .'/presets/config/vn/translations.php');
     }
 }

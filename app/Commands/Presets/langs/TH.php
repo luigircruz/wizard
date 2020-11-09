@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Commands\Presets\Langs;
+namespace App\Commands\Presets\langs;
 
-use App\Commands\Presets\Preset;
 use Illuminate\Filesystem\Filesystem;
 
-class TH extends Preset
+class TH
 {
     /**
      * Install the preset.
@@ -15,17 +14,7 @@ class TH extends Preset
     public static function install()
     {
         static::createLangDirectory();
-        static::updateIndexPhp();
-    }
-    
-    /**
-     * Update PHP files for the application.
-     *
-     * @return void
-     */
-    protected static function updateIndexPhp()
-    {
-        copy(__DIR__.'/th-stubs/index.stub', base_path('presets/th/index.php'));
+        static::createTHFiles();
     }
 
     /**
@@ -37,8 +26,24 @@ class TH extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('presets/th'))) {
+        if (! $filesystem->exists($directory = getcwd() .'/presets/th')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
+
+        if (! $filesystem->exists($directory = getcwd() .'/presets/config/th')) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
+    }
+
+    /**
+     * Create TH specific files.
+     *
+     * @return void
+     */
+    protected static function createTHFiles()
+    {
+        copy(__DIR__.'/th-stubs/index.stub', getcwd() .'/presets/th/index.php');
+        copy(__DIR__.'/th-stubs/app.stub', getcwd() .'/presets/config/th/app.php');
+        copy(__DIR__.'/th-stubs/translations.stub', getcwd() .'/presets/config/th/translations.php');
     }
 }

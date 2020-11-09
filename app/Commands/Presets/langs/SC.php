@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Commands\Presets\Langs;
+namespace App\Commands\Presets\langs;
 
-use App\Commands\Presets\Preset;
 use Illuminate\Filesystem\Filesystem;
 
-class SC extends Preset
+class SC
 {
     /**
      * Install the preset.
@@ -15,17 +14,7 @@ class SC extends Preset
     public static function install()
     {
         static::createLangDirectory();
-        static::updateIndexPhp();
-    }
-    
-    /**
-     * Update PHP files for the application.
-     *
-     * @return void
-     */
-    protected static function updateIndexPhp()
-    {
-        copy(__DIR__.'/sc-stubs/index.stub', base_path('presets/sc/index.php'));
+        static::createSCFiles();
     }
 
     /**
@@ -37,8 +26,24 @@ class SC extends Preset
     {
         $filesystem = new Filesystem;
 
-        if (! $filesystem->exists($directory = base_path('presets/sc'))) {
+        if (! $filesystem->exists($directory = getcwd() .'/presets/sc')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
+
+        if (! $filesystem->exists($directory = getcwd() .'/presets/config/sc')) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
+    }
+
+    /**
+     * Create SC specific files.
+     *
+     * @return void
+     */
+    protected static function createSCFiles()
+    {
+        copy(__DIR__.'/sc-stubs/index.stub', getcwd() .'/presets/sc/index.php');
+        copy(__DIR__.'/sc-stubs/app.stub', getcwd() .'/presets/config/sc/app.php');
+        copy(__DIR__.'/sc-stubs/translations.stub', getcwd() .'/presets/config/sc/translations.php');
     }
 }

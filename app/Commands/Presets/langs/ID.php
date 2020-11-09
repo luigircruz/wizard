@@ -1,11 +1,10 @@
 <?php
 
-namespace App\Commands\Presets\Langs;
+namespace App\Commands\Presets\langs;
 
-use App\Commands\Presets\Preset;
 use Illuminate\Filesystem\Filesystem;
 
-class ID extends Preset
+class ID
 {
     /**
      * Install the preset.
@@ -15,17 +14,7 @@ class ID extends Preset
     public static function install()
     {
         static::createLangDirectory();
-        static::updateIndexPhp();
-    }
-    
-    /**
-     * Update PHP files for the application.
-     *
-     * @return void
-     */
-    protected static function updateIndexPhp()
-    {
-        copy(__DIR__.'/id-stubs/index.stub', base_path('presets/id/index.php'));
+        static::createIDFiles();
     }
 
     /**
@@ -37,10 +26,24 @@ class ID extends Preset
     {
         $filesystem = new Filesystem;
 
-        // $filesystem->deleteDirectory(base_path('presets/en'));
-
-        if (! $filesystem->exists($directory = base_path('presets/id'))) {
+        if (! $filesystem->exists($directory = getcwd() .'/presets/id')) {
             $filesystem->makeDirectory($directory, 0755, true);
         }
+
+        if (! $filesystem->exists($directory = getcwd() .'/presets/config/id')) {
+            $filesystem->makeDirectory($directory, 0755, true);
+        }
+    }
+
+    /**
+     * Create ID specific files.
+     *
+     * @return void
+     */
+    protected static function createIDFiles()
+    {
+        copy(__DIR__.'/id-stubs/index.stub', getcwd() .'/presets/id/index.php');
+        copy(__DIR__.'/id-stubs/app.stub', getcwd() .'/presets/config/id/app.php');
+        copy(__DIR__.'/id-stubs/translations.stub', getcwd() .'/presets/config/id/translations.php');
     }
 }
