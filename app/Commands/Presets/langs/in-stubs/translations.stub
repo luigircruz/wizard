@@ -2,7 +2,7 @@
 
 /*
 |----------------------------------------------------------------------------------
-| ID TEXT TRANSLATION SETTINGS
+| IN TEXT TRANSLATION SETTINGS
 |----------------------------------------------------------------------------------
 |
 | Here is where you create your translation variables for an specific language.

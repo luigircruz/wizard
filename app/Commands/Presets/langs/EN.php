@@ -3,8 +3,9 @@
 namespace App\Commands\Presets\langs;
 
 use Illuminate\Filesystem\Filesystem;
+use App\Commands\Presets\Preset;
 
-class EN
+class EN extends Preset
 {
     /**
      * Install the preset.
@@ -42,8 +43,8 @@ class EN
      */
     protected static function createENFiles()
     {
-        copy(__DIR__.'/en-stubs/index.stub', getcwd() .'/presets/en/index.php');
         copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/en/app.php');
-        copy(__DIR__.'/en-stubs/translations.stub', getcwd() .'/presets/config/en/translations.php');
+        static::createTranslationsFile("EN");
+        static::createIndexFile("en", "en");
     }
 }

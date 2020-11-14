@@ -3,8 +3,9 @@
 namespace App\Commands\Presets\langs;
 
 use Illuminate\Filesystem\Filesystem;
+use App\Commands\Presets\Preset;
 
-class ID
+class ID extends Preset
 {
     /**
      * Install the preset.
@@ -42,8 +43,8 @@ class ID
      */
     protected static function createIDFiles()
     {
-        copy(__DIR__.'/id-stubs/index.stub', getcwd() .'/presets/id/index.php');
         copy(__DIR__.'/id-stubs/app.stub', getcwd() .'/presets/config/id/app.php');
-        copy(__DIR__.'/id-stubs/translations.stub', getcwd() .'/presets/config/id/translations.php');
+        static::createTranslationsFile("ID");
+        static::createIndexFile("id", "id");
     }
 }

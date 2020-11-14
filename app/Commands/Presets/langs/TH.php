@@ -3,8 +3,9 @@
 namespace App\Commands\Presets\langs;
 
 use Illuminate\Filesystem\Filesystem;
+use App\Commands\Presets\Preset;
 
-class TH
+class TH extends Preset
 {
     /**
      * Install the preset.
@@ -42,8 +43,8 @@ class TH
      */
     protected static function createTHFiles()
     {
-        copy(__DIR__.'/th-stubs/index.stub', getcwd() .'/presets/th/index.php');
         copy(__DIR__.'/th-stubs/app.stub', getcwd() .'/presets/config/th/app.php');
-        copy(__DIR__.'/th-stubs/translations.stub', getcwd() .'/presets/config/th/translations.php');
+        static::createTranslationsFile("TH");
+        static::createIndexFile("th", "th");
     }
 }

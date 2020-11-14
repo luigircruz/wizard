@@ -15,7 +15,7 @@ class PresetCommand extends Command
      */
     protected $signature = "make:preset
                     { type : The preset type (generic, registration) }
-                    { --lang=* : Language pages to generate. Example: ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn'] }";
+                    { --lang=* : Language pages to generate. Example: ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn', 'es', 'pt'] }";
 
     /**
      * The description of the command.
@@ -42,7 +42,7 @@ class PresetCommand extends Command
 
         if ($this->option('lang')) {
             foreach ($this->option('lang') as $lang) {
-                if (! in_array($lang, ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn'])) {
+                if (! in_array($lang, ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn', 'es', 'pt'])) {
                     $this->notify('Invalid Language Argument', 'The language that you have specified doesn\'t exist!');
                     throw new InvalidArgumentException('The specified language doesn\'t exist!');
                 }
@@ -137,5 +137,25 @@ class PresetCommand extends Command
     protected function vn()
     {
         Presets\langs\VN::install();
+    }
+
+    /**
+     * Install ES language page.
+     *
+     * @return void
+     */
+    protected function es()
+    {
+        Presets\langs\ES::install();
+    }
+
+    /**
+     * Install PT language page.
+     *
+     * @return void
+     */
+    protected function pt()
+    {
+        Presets\langs\PT::install();
     }
 }

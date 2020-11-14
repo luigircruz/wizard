@@ -56,4 +56,33 @@ class Preset
         copy(__DIR__.'/generic-stubs/head.stub', getcwd() .'/presets/resources/views/head.php');
         copy(__DIR__.'/generic-stubs/footer.stub', getcwd() .'/presets/resources/views/footer.php');
     }
+
+    /**
+     * Create a language translations.
+     *
+     * @return  void
+     */
+    protected static function createTranslationsFile($lang)
+    {
+        $stub = file_get_contents(getcwd() .'/app/commands/presets/generic-stubs/translations.stub');
+
+        $replacedContents = str_replace('{{lang}}', $lang, $stub);  
+
+        file_put_contents(getcwd() .'/presets/config/'. strtolower($lang) .'/translations.php', $replacedContents);
+    }
+
+    /**
+     * Create a Index file.
+     *
+     * @return  void
+     */
+    protected static function createIndexFile($tpl_lang, $lang_iso)
+    {
+        $stub = file_get_contents(getcwd() .'/app/commands/presets/generic-stubs/index.stub');
+
+        $replacedContents = str_replace('{{tpl_lang}}', $tpl_lang, $stub);  
+        $replacedContents = str_replace('{{lang_iso}}', $lang_iso, $replacedContents);  
+
+        file_put_contents(getcwd() .'/presets/'. $tpl_lang .'/index.php', $replacedContents);
+    }
 }

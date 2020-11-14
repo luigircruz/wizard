@@ -3,8 +3,9 @@
 namespace App\Commands\Presets\langs;
 
 use Illuminate\Filesystem\Filesystem;
+use App\Commands\Presets\Preset;
 
-class IN
+class IN extends Preset
 {
     /**
      * Install the preset.

@@ -3,8 +3,9 @@
 namespace App\Commands\Presets\langs;
 
 use Illuminate\Filesystem\Filesystem;
+use App\Commands\Presets\Preset;
 
-class VN
+class VN extends Preset
 {
     /**
      * Install the preset.
@@ -42,8 +43,8 @@ class VN
      */
     protected static function createVNFiles()
     {
-        copy(__DIR__.'/vn-stubs/index.stub', getcwd() .'/presets/vn/index.php');
         copy(__DIR__.'/vn-stubs/app.stub', getcwd() .'/presets/config/vn/app.php');
-        copy(__DIR__.'/vn-stubs/translations.stub', getcwd() .'/presets/config/vn/translations.php');
+        static::createTranslationsFile("VN");
+        static::createIndexFile("vn", "vi");
     }
 }

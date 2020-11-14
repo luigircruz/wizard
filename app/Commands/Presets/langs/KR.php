@@ -3,8 +3,9 @@
 namespace App\Commands\Presets\langs;
 
 use Illuminate\Filesystem\Filesystem;
+use App\Commands\Presets\Preset;
 
-class KR
+class KR extends Preset
 {
     /**
      * Install the preset.
@@ -42,8 +43,8 @@ class KR
      */
     protected static function createKRFiles()
     {
-        copy(__DIR__.'/kr-stubs/index.stub', getcwd() .'/presets/kr/index.php');
         copy(__DIR__.'/kr-stubs/app.stub', getcwd() .'/presets/config/kr/app.php');
-        copy(__DIR__.'/kr-stubs/translations.stub', getcwd() .'/presets/config/kr/translations.php');
+        static::createTranslationsFile("KR");
+        static::createIndexFile("kr", "ko");
     }
 }
