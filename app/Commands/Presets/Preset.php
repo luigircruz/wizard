@@ -64,7 +64,7 @@ class Preset
      */
     protected static function createTranslationsFile($lang)
     {
-        $stub = file_get_contents(getcwd() .'/app/commands/presets/generic-stubs/translations.stub');
+        $stub = file_get_contents(__DIR__.'/generic-stubs/translations.stub');
 
         $replacedContents = str_replace('{{lang}}', $lang, $stub);  
 
@@ -78,7 +78,7 @@ class Preset
      */
     protected static function createIndexFile($tpl_lang, $lang_iso)
     {
-        $stub = file_get_contents(getcwd() .'/app/commands/presets/generic-stubs/index.stub');
+        $stub = file_get_contents(__DIR__.'/generic-stubs/index.stub');
 
         $replacedContents = str_replace('{{tpl_lang}}', $tpl_lang, $stub);  
         $replacedContents = str_replace('{{lang_iso}}', $lang_iso, $replacedContents);  

@@ -15,7 +15,7 @@ class PresetCommand extends Command
      */
     protected $signature = "make:preset
                     { type : The preset type (generic, registration) }
-                    { --lang=* : Language pages to generate. Example: ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn', 'es', 'pt'] }";
+                    { --lang=* : Language pages to generate. Example: ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn', 'eu', 'ch', 'jp', 'hi', 'te', 'gr', 'pl', 'es', 'pt'] }";
 
     /**
      * The description of the command.
@@ -42,7 +42,7 @@ class PresetCommand extends Command
 
         if ($this->option('lang')) {
             foreach ($this->option('lang') as $lang) {
-                if (! in_array($lang, ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn', 'es', 'pt'])) {
+                if (! in_array($lang, ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn', 'eu', 'ch', 'jp', 'hi', 'te', 'gr', 'pl', 'es', 'pt'])) {
                     $this->notify('Invalid Language Argument', 'The language that you have specified doesn\'t exist!');
                     throw new InvalidArgumentException('The specified language doesn\'t exist!');
                 }
@@ -138,7 +138,77 @@ class PresetCommand extends Command
     {
         Presets\langs\VN::install();
     }
-
+    
+    /**
+     * Install EU language page.
+     *
+     * @return void
+     */
+    protected function eu()
+    {
+        Presets\langs\EU::install();
+    }
+    
+    /**
+     * Install CH language page.
+     *
+     * @return void
+     */
+    protected function ch()
+    {
+        Presets\langs\CH::install();
+    }
+    
+    /**
+     * Install JP language page.
+     *
+     * @return void
+     */
+    protected function jp()
+    {
+        Presets\langs\JP::install();
+    }
+    
+    /**
+     * Install HI language page.
+     *
+     * @return void
+     */
+    protected function hi()
+    {
+        Presets\langs\HI::install();
+    }
+    
+    /**
+     * Install TE language page.
+     *
+     * @return void
+     */
+    protected function te()
+    {
+        Presets\langs\TE::install();
+    }
+    
+    /**
+     * Install GR language page.
+     *
+     * @return void
+     */
+    protected function gr()
+    {
+        Presets\langs\GR::install();
+    }
+    
+    /**
+     * Install PL language page.
+     *
+     * @return void
+     */
+    protected function pl()
+    {
+        Presets\langs\PL::install();
+    }
+    
     /**
      * Install ES language page.
      *
