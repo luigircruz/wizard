@@ -2,7 +2,6 @@
 
 namespace App\Commands;
 
-use Illuminate\Console\Scheduling\Schedule;
 use LaravelZero\Framework\Commands\Command;
 use Symfony\Component\Console\Exception\InvalidArgumentException;
 
@@ -14,7 +13,7 @@ class PresetCommand extends Command
      * @var string
      */
     protected $signature = "make:preset
-                    { type : The preset type (generic, registration) }
+                    { type : The preset type (generic) }
                     { --lang=* : Language pages to generate. Example: ['en', 'id', 'in', 'kr', 'sc', 'th', 'vn', 'eu', 'ch', 'jp', 'hi', 'te', 'gr', 'pl', 'es', 'pt'] }";
 
     /**
