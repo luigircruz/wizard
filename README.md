@@ -1,37 +1,46 @@
-<p align="center">
-    <img title="Laravel Zero" height="100" src="https://raw.githubusercontent.com/laravel-zero/docs/master/images/logo/laravel-zero-readme.png" />
-</p>
+## How to install?
 
-<p align="center">
-  <a href="https://github.com/laravel-zero/framework/actions"><img src="https://img.shields.io/github/workflow/status/laravel-zero/framework/Tests.svg" alt="Build Status"></img></a>
-  <a href="https://scrutinizer-ci.com/g/laravel-zero/framework"><img src="https://img.shields.io/scrutinizer/g/laravel-zero/framework.svg" alt="Quality Score"></img></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/dt/laravel-zero/framework.svg" alt="Total Downloads"></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/v/laravel-zero/framework.svg?label=stable" alt="Latest Stable Version"></a>
-  <a href="https://packagist.org/packages/laravel-zero/framework"><img src="https://img.shields.io/packagist/l/laravel-zero/framework.svg" alt="License"></a>
-</p>
+##### On your git bash terminal, create a symlink between the standalone PHAR archive file (wizard) and composer global.
 
-<h4> <center>This is a <bold>community project</bold> and not an official Laravel one </center></h4>
+`
+ln -fs {source_path} {composer_bin_path}
 
-Laravel Zero was created by, and is maintained by [Nuno Maduro](https://github.com/nunomaduro), and is a micro-framework that provides an elegant starting point for your console application. It is an **unofficial** and customized version of Laravel optimized for building command-line applications.
+This will create a link between the PHAR file and Composer global so that all the commands from “wizard” will be available to the git bash command line.
+`
 
-- Built on top of the [Laravel](https://laravel.com) components.
-- Optional installation of Laravel [Eloquent](https://laravel-zero.com/docs/database/), Laravel [Logging](https://laravel-zero.com/docs/logging/) and many others.
-- Supports interactive [menus](https://laravel-zero.com/docs/build-interactive-menus/) and [desktop notifications](https://laravel-zero.com/docs/send-desktop-notifications/) on Linux, Windows & MacOS.
-- Ships with a [Scheduler](https://laravel-zero.com/docs/task-scheduling/) and  a [Standalone Compiler](https://laravel-zero.com/docs/build-a-standalone-application/).
-- Integration with [Collision](https://github.com/nunomaduro/collision) - Beautiful error reporting
+##### Definitions:
+- ln = creates a symlink (symbolic link)
+- -fs = an option that makes it a soft symlink and forces the symlinking if one already exists
+- source_path = location path of the downloaded “wizard.phar” file
+- composer_bin_path = location path of the composer’s bin 
+
+##### Example: (for Windows OS)
+
+'ln -fs ~/Downloads/wizard ~/AppData/Local/ComposerSetup/bin'
 
 ------
 
-## Documentation
+## How to use the Landing Page Boilerplate Generator?
 
-For full documentation, visit [laravel-zero.com](https://laravel-zero.com/).
+1. Open your git bash terminal anywhere on your preferred directory (Ex: inside htdocs/)
+2. Enter command to generate a generic boilerplate:
 
-## Support the development
-**Do you like this project? Support it by donating**
+`
+USAGE: 
 
-- PayPal: [Donate](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L)
-- Patreon: [Donate](https://www.patreon.com/nunomaduro)
+wizard [command] [type] [language]
 
-## License
+LEGEND:
+Available command = make:preset
+Available type = generic
+Available languages =  en, id, in, kr, sc, th, vn, eu, ch, jp, hi, te, gr, pl, es, pt
+`
 
-Laravel Zero is an open-source software licensed under the [MIT license](https://github.com/laravel-zero/laravel-zero/blob/stable/LICENSE.md).
+Examples:
+##### Generic EN page: 
+
+`wizard make:preset generic --lang=en`
+
+##### Generic Multiple Language page: 
+
+`wizard make:preset generic --lang={en,sc,th,vn}`
