@@ -32,7 +32,7 @@ class PresetCommand extends Command
      */
     public function handle()
     {
-        if (! in_array($this->argument('type'), ['generic', 'registration'])) {
+        if (! in_array($this->argument('type'), ['generic'])) {
             $this->notify('Invalid Preset Type', 'The preset type that you have entered doesn\'t exists!');
             throw new InvalidArgumentException('Invalid preset type!');
         }
