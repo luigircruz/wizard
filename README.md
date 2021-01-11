@@ -2,11 +2,9 @@
 
 ##### On your git bash terminal, create a symlink between the standalone PHAR archive file (wizard) and composer global.
 
-`
-ln -fs {source_path} {composer_bin_path}
+`ln -fs {source_path} {composer_bin_path}`
 
 This will create a link between the PHAR file and Composer global so that all the commands from “wizard” will be available to the git bash command line.
-`
 
 ##### Definitions:
 - ln = creates a symlink (symbolic link)
@@ -25,16 +23,14 @@ This will create a link between the PHAR file and Composer global so that all th
 1. Open your git bash terminal anywhere on your preferred directory (Ex: inside htdocs/)
 2. Enter command to generate a generic boilerplate:
 
-`
 USAGE: 
 
-wizard [command] [type] [language]
+`wizard [command] [type] [language]`
 
 LEGEND:
 Available command = make:preset
 Available type = generic
 Available languages =  en, id, in, kr, sc, th, vn, eu, ch, jp, hi, te, gr, pl, es, pt
-`
 
 Examples:
 ##### Generic EN page: 
