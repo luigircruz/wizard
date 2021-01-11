@@ -28,9 +28,9 @@ USAGE:
 `wizard [command] [type] [language]`
 
 LEGEND:
-Available command = make:preset
-Available type = generic
-Available languages =  en, id, in, kr, sc, th, vn, eu, ch, jp, hi, te, gr, pl, es, pt
+- Available command = make:preset
+- Available type = generic
+- Available languages =  en, id, in, kr, sc, th, vn, eu, ch, jp, hi, te, gr, pl, es, pt
 
 Examples:
 ##### Generic EN page: 
