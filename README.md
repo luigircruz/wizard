@@ -1,6 +1,6 @@
 ## How to install?
 
-##### Download the generated [wizard](https://github.com/luigircruz/wizard/tree/master/builds) PHAR file into your Downloads folder.
+##### Download the generated [wizard](https://github.com/luigircruz/wizard/tree/master/builds) PHAR file to your Downloads folder.
 
 ##### On your git bash terminal, create a symlink between the standalone PHAR archive file (wizard) and composer global.
 
