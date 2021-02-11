@@ -24,7 +24,7 @@ This will create a link between the PHAR file and Composer global so that all th
 
 ------
 
-## Generation a wizard PHAR file
+## Generate a wizard PHAR file
 
 1. Clone this repository: 
 
