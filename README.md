@@ -4,7 +4,9 @@
 
 ##### On your git bash terminal, create a symlink between the standalone PHAR archive file (wizard) and composer global.
 
-`ln -fs {source_path} {composer_bin_path}`
+```sh
+ln -fs {source_path} {composer_bin_path}
+```
 
 This will create a link between the PHAR file and Composer global so that all the commands from “wizard” will be available to the git bash command line.
 
@@ -16,11 +18,15 @@ This will create a link between the PHAR file and Composer global so that all th
 
 ##### Example: (for MacOS)
 
-'ln -fs ~/Downloads/wizard ~/.composer/vendor/bin'
+```sh
+ln -fs ~/Downloads/wizard ~/.composer/vendor/bin
+```
 
 ##### Example: (for Windows OS)
 
-'ln -fs ~/Downloads/wizard ~/AppData/Local/ComposerSetup/bin'
+```sh
+ln -fs ~/Downloads/wizard ~/AppData/Local/ComposerSetup/bin
+```
 
 ------
 
@@ -46,11 +52,15 @@ Once done, a `wizard` PHAR file will be generated from the `builds/` folder. The
 
 ##### Example: (for MacOS)
 
-'ln -fs ~/wizard/builds/wizard ~/.composer/vendor/bin'
+```sh
+ln -fs ~/wizard/builds/wizard ~/.composer/vendor/bin
+```
 
 ##### Example: (for Windows OS)
 
-'ln -fs ~/wizard/builds/wizard ~/AppData/Local/ComposerSetup/bin'
+```sh
+ln -fs ~/wizard/builds/wizard ~/AppData/Local/ComposerSetup/bin
+```
 
 ------
 
@@ -61,7 +71,9 @@ Once done, a `wizard` PHAR file will be generated from the `builds/` folder. The
 
 USAGE: 
 
-`wizard [command] [type] [language]`
+```sh
+wizard [command] [type] [language]
+```
 
 LEGEND:
 - Available command = make:preset
@@ -71,8 +83,12 @@ LEGEND:
 Examples:
 ##### Generic EN page: 
 
-`wizard make:preset generic --lang=en`
+```sh
+wizard make:preset generic --lang=en
+```
 
 ##### Generic Multiple Language page: 
 
-`wizard make:preset generic --lang={en,sc,th,vn}`
+```sh
+wizard make:preset generic --lang={en,sc,th,vn}
+```
