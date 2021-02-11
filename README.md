@@ -1,5 +1,7 @@
 ## How to install?
 
+##### Download the generated [wizard](https://github.com/luigircruz/wizard/builds/) PHAR file into your Downloads folder.
+
 ##### On your git bash terminal, create a symlink between the standalone PHAR archive file (wizard) and composer global.
 
 `ln -fs {source_path} {composer_bin_path}`
@@ -12,9 +14,43 @@ This will create a link between the PHAR file and Composer global so that all th
 - source_path = location path of the downloaded “wizard.phar” file
 - composer_bin_path = location path of the composer’s bin 
 
+##### Example: (for MacOS)
+
+'ln -fs ~/Downloads/wizard ~/.composer/vendor/bin'
+
 ##### Example: (for Windows OS)
 
 'ln -fs ~/Downloads/wizard ~/AppData/Local/ComposerSetup/bin'
+
+------
+
+## Generation a wizard PHAR file
+
+1. Clone this repository: 
+
+```sh
+git clone https://github.com/luigircruz/wizard.git wizard
+```
+2. Run composer update (NOTE: Make sure you have atleast PHP 7.4 on your machine): 
+```sh
+composer update`
+```
+3. Build the application: 
+```sh
+php wizard app:build wizard
+```
+
+This will prompt you the build version of the app. You may use `1.0.0` as your version on initial install.
+
+Once done, a `wizard` PHAR file will be generated from the `builds/` folder. Then after that, you can now symlink the generated file to your composer global.
+
+##### Example: (for MacOS)
+
+'ln -fs ~/wizard/builds/wizard ~/.composer/vendor/bin'
+
+##### Example: (for Windows OS)
+
+'ln -fs ~/wizard/builds/wizard ~/AppData/Local/ComposerSetup/bin'
 
 ------
 
