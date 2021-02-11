@@ -37,7 +37,7 @@ ln -fs ~/Downloads/wizard ~/AppData/Local/ComposerSetup/bin
 ```sh
 git clone https://github.com/luigircruz/wizard.git wizard
 ```
-2. Run composer update (NOTE: Make sure you have atleast PHP 7.4 on your machine): 
+2. Run composer update (NOTE: Make sure you have atleast PHP 7.3 on your machine): 
 ```sh
 composer update`
 ```
