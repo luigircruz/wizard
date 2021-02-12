@@ -53,13 +53,13 @@ Once done, a `wizard` PHAR file will be generated from the `builds/` folder. The
 ##### Example: (for MacOS)
 
 ```sh
-ln -fs ~/wizard/builds/wizard ~/.composer/vendor/bin
+ln -fs builds/wizard ~/.composer/vendor/bin
 ```
 
 ##### Example: (for Windows OS)
 
 ```sh
-ln -fs ~/wizard/builds/wizard ~/AppData/Local/ComposerSetup/bin
+ln -fs builds/wizard ~/AppData/Local/ComposerSetup/bin
 ```
 
 ------
@@ -72,7 +72,7 @@ ln -fs ~/wizard/builds/wizard ~/AppData/Local/ComposerSetup/bin
 USAGE: 
 
 ```sh
-wizard [command] [type] [language]
+php wizard [command] [type] [language]
 ```
 
 LEGEND:
@@ -84,11 +84,11 @@ Examples:
 ##### Generic EN page: 
 
 ```sh
-wizard make:preset generic --lang=en
+php wizard make:preset generic --lang=en
 ```
 
 ##### Generic Multiple Language page: 
 
 ```sh
-wizard make:preset generic --lang={en,sc,th,vn}
+php wizard make:preset generic --lang={en,sc,th,vn}
 ```
