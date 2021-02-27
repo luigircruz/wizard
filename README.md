@@ -72,7 +72,7 @@ ln -fs builds/wizard ~/AppData/Local/ComposerSetup/bin
 USAGE: 
 
 ```sh
-php wizard [command] [type] [language]
+wizard [command] [type] [language]
 ```
 
 LEGEND:
@@ -84,11 +84,11 @@ Examples:
 ##### Generic EN page: 
 
 ```sh
-php wizard make:preset generic --lang=en
+wizard make:preset generic --lang=en
 ```
 
 ##### Generic Multiple Language page: 
 
 ```sh
-php wizard make:preset generic --lang={en,sc,th,vn}
+wizard make:preset generic --lang={en,sc,th,vn}
 ```
