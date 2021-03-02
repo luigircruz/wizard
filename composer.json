@@ -16,12 +16,12 @@
         }
     ],
     "require": {
-        "php": "^7.3",
-        "laminas/laminas-text": "^2.7",
+        "php": "^8.0",
+        "laminas/laminas-text": "^2.8",
         "laravel-zero/framework": "^8.0"
     },
     "require-dev": {
-        "mockery/mockery": "^1.4.2",
+        "mockery/mockery": "^1.4.3",
         "phpunit/phpunit": "^9.3"
     },
     "autoload": {
