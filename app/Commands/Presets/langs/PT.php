@@ -43,7 +43,6 @@ class PT extends Preset
      */
     protected static function createPTFiles()
     {
-        copy(__DIR__.'/pt-stubs/app.stub', getcwd() .'/presets/config/pt/app.php');
         static::createTranslationsFile("PT");
         static::createIndexFile("pt", "pt");
     }

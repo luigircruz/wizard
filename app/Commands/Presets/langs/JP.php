@@ -43,7 +43,6 @@ class JP extends Preset
      */
     protected static function createJPFiles()
     {
-        copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/jp/app.php');
         static::createTranslationsFile("JP");
         static::createIndexFile("jp", "ja");
     }

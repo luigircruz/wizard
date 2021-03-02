@@ -43,7 +43,6 @@ class TE extends Preset
      */
     protected static function createTEFiles()
     {
-        copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/te/app.php');
         static::createTranslationsFile("TE");
         static::createIndexFile("te", "te");
     }

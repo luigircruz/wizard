@@ -43,7 +43,6 @@ class PL extends Preset
      */
     protected static function createPLFiles()
     {
-        copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/pl/app.php');
         static::createTranslationsFile("PL");
         static::createIndexFile("pl", "pl");
     }

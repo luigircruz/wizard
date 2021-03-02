@@ -43,7 +43,6 @@ class CH extends Preset
      */
     protected static function createCHFiles()
     {
-        copy(__DIR__.'/sc-stubs/app.stub', getcwd() .'/presets/config/ch/app.php');
         static::createTranslationsFile("CH");
         static::createIndexFile("ch", "zh-Hant");
     }

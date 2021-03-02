@@ -43,7 +43,6 @@ class GR extends Preset
      */
     protected static function createGRFiles()
     {
-        copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/gr/app.php');
         static::createTranslationsFile("GR");
         static::createIndexFile("gr", "el");
     }

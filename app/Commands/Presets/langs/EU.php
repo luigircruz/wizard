@@ -43,7 +43,6 @@ class EU extends Preset
      */
     protected static function createEUFiles()
     {
-        copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/eu/app.php');
         static::createTranslationsFile("EU");
         static::createIndexFile("eu", "en");
     }

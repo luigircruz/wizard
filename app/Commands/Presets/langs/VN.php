@@ -43,7 +43,6 @@ class VN extends Preset
      */
     protected static function createVNFiles()
     {
-        copy(__DIR__.'/vn-stubs/app.stub', getcwd() .'/presets/config/vn/app.php');
         static::createTranslationsFile("VN");
         static::createIndexFile("vn", "vi");
     }

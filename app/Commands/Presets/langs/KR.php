@@ -43,7 +43,6 @@ class KR extends Preset
      */
     protected static function createKRFiles()
     {
-        copy(__DIR__.'/kr-stubs/app.stub', getcwd() .'/presets/config/kr/app.php');
         static::createTranslationsFile("KR");
         static::createIndexFile("kr", "ko");
     }

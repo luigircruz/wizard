@@ -43,7 +43,6 @@ class SC extends Preset
      */
     protected static function createSCFiles()
     {
-        copy(__DIR__.'/sc-stubs/app.stub', getcwd() .'/presets/config/sc/app.php');
         static::createTranslationsFile("SC");
         static::createIndexFile("sc", "zh-Hans");
     }

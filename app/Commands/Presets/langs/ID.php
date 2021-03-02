@@ -43,7 +43,6 @@ class ID extends Preset
      */
     protected static function createIDFiles()
     {
-        copy(__DIR__.'/id-stubs/app.stub', getcwd() .'/presets/config/id/app.php');
         static::createTranslationsFile("ID");
         static::createIndexFile("id", "id");
     }

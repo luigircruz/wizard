@@ -44,7 +44,6 @@ class IN extends Preset
     protected static function createINFiles()
     {
         copy(__DIR__.'/in-stubs/index.stub', getcwd() .'/presets/in/index.php');
-        copy(__DIR__.'/in-stubs/app.stub', getcwd() .'/presets/config/in/app.php');
         copy(__DIR__.'/in-stubs/translations.stub', getcwd() .'/presets/config/in/translations.php');
     }
 }

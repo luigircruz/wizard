@@ -43,7 +43,6 @@ class HI extends Preset
      */
     protected static function createHIFiles()
     {
-        copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/hi/app.php');
         static::createTranslationsFile("HI");
         static::createIndexFile("hi", "hi");
     }

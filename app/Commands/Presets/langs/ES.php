@@ -43,7 +43,6 @@ class ES extends Preset
      */
     protected static function createESFiles()
     {
-        copy(__DIR__.'/es-stubs/app.stub', getcwd() .'/presets/config/es/app.php');
         static::createIndexFile("es", "es");
         static::createTranslationsFile("ES");
     }

@@ -43,7 +43,6 @@ class TH extends Preset
      */
     protected static function createTHFiles()
     {
-        copy(__DIR__.'/th-stubs/app.stub', getcwd() .'/presets/config/th/app.php');
         static::createTranslationsFile("TH");
         static::createIndexFile("th", "th");
     }
