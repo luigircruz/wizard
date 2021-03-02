@@ -43,7 +43,6 @@ class EN extends Preset
      */
     protected static function createENFiles()
     {
-        copy(__DIR__.'/en-stubs/app.stub', getcwd() .'/presets/config/en/app.php');
         static::createTranslationsFile("EN");
         static::createIndexFile("en", "en");
     }
