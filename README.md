@@ -43,9 +43,9 @@ git clone https://github.com/luigircruz/wizard.git wizard
 cd wizard
 ```
 
-3. Run composer update (NOTE: Make sure you have atleast PHP 7.3 on your machine): 
+3. Run composer install (NOTE: Make sure you have atleast PHP 7.4 on your machine): 
 ```sh
-composer update
+composer install
 ```
 
 4. Build the application: 
@@ -53,7 +53,7 @@ composer update
 php wizard app:build wizard
 ```
 
-This will prompt you the build version of the app. You may use `1.0.0` as your version on initial install.
+This will prompt you the build version of the app. You may use `0.1.0` as your version on initial install.
 
 Once done, a `wizard` PHAR file will be generated to the `builds/` folder. Then after that, you can now symlink the generated file to your composer global.
 
