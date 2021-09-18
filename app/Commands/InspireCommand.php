@@ -30,15 +30,4 @@ class InspireCommand extends Command
     {
         $this->info('Simplicity is the ultimate sophistication.');
     }
-
-    /**
-     * Define the command's schedule.
-     *
-     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
-     * @return void
-     */
-    public function schedule(Schedule $schedule)
-    {
-        // $schedule->command(static::class)->everyMinute();
-    }
 }

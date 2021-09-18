@@ -73,7 +73,7 @@ ln -fs builds/wizard ~/AppData/Local/ComposerSetup/bin
 
 ## How to use the Landing Page Boilerplate Generator?
 
-1. Open your git bash terminal anywhere on your preferred directory (Ex: inside htdocs/)
+1. Open your git bash terminal anywhere on your preferred directory (Ex: inside `Documents/` or in your `htdocs/` folder)
 2. Enter command to generate a generic boilerplate:
 
 USAGE: 
